@@ -12,13 +12,26 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
+    {%- case request.path -%}
+      {%- when '/snowball' -%}
+        {%- assign page_description = 'Snowball helps Australian service businesses turn more visitors into leads with a sharper website, clearer offer and faster path to enquiry.' -%}
+      {%- when '/services/vibe-code-rescue' -%}
+        {%- assign page_description = 'Vibe Code Rescue fixes broken AI-built apps, stabilises the codebase and gets your product back to a usable launch path.' -%}
+      {%- when '/blog/fix-broken-cursor-app' -%}
+        {%- assign page_description = 'Fix a broken Cursor app with practical steps to diagnose errors, recover your code and get your AI-built project moving again.' -%}
+      {%- when '/services/shopify' -%}
+        {%- assign page_description = 'Launch or improve a Shopify store that feels premium, loads fast and makes it easier for customers to buy.' -%}
+      {%- when '/services/saas' -%}
+        {%- assign page_description = 'Build a clear, conversion-focused SaaS website that explains your product, earns trust and turns trial-ready visitors into leads.' -%}
+    {%- endcase -%}
+
     <title>{{ shop.name }}</title>
 
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
 
-    {% render 'meta-tags' %}
+    {% render 'meta-tags', page_description: page_description %}
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     {{ content_for_header }}
