@@ -136,6 +136,78 @@
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
+
+      {%- case request.path -%}
+        {%- when '/work/casa' -%}
+          <section class="cs-proof">
+            <h2>// The brief</h2>
+            <p>CASA came to Sonder after seeing the RMIT engagement, needing an enterprise-grade Shopify build that could turn a polished set of Figma designs into a live store without losing fidelity. The brief was twofold: tighten the internal process that surrounded each new product launch, and lift the store's conversion rate above what their previous setup could deliver.</p>
+            <h2>// What we delivered</h2>
+            <ul>
+              <li>A full Shopify Plus build taken from CASA's existing Figma designs to a production-ready store.</li>
+              <li>A structured product launch workflow that reduced manual steps for the internal team.</li>
+              <li>Conversion-focused templates, navigation and checkout flows built to the standard of a Shopify Plus build.</li>
+              <li>Handover and documentation to let the CASA team run the store day to day.</li>
+            </ul>
+            <h2>// The outcome</h2>
+            <p>The new store replaced a slower, more manual setup with a build that matched the enterprise standard CASA expected from the RMIT work, giving the team a cleaner process and a stronger foundation for conversion growth.</p>
+          </section>
+        {%- when '/work/razorback-4x4' -%}
+          <section class="cs-proof">
+            <h2>// The brief</h2>
+            <p>Razorback 4x4 makes serious off-road gear, cut and sewn in Australia, and needed a store that could keep up with a brand growing faster than its previous platform could handle. The brief was for a full custom Shopify build that matched the toughness of the product and could scale with demand.</p>
+            <h2>// What we delivered</h2>
+            <ul>
+              <li>A full custom Shopify build designed and built from the ground up for the Razorback 4x4 brand.</li>
+              <li>A product and category structure built for a heavy-duty accessory catalogue.</li>
+              <li>Performance and checkout work tuned for a high-demand, fast-moving store.</li>
+              <li>A foundation that could scale as the brand grew.</li>
+            </ul>
+            <h2>// The outcome</h2>
+            <p>Within twelve months Razorback 4x4 was named one of Australia's fastest growing businesses, and the custom build scaled right alongside that growth rather than holding it back.</p>
+          </section>
+        {%- when '/work/gather' -%}
+          <section class="cs-proof">
+            <h2>// The brief</h2>
+            <p>Gather, which began life as Klavx, came out of a problem Sonder kept meeting with clients: a proper integration between Lightspeed Retail X and Klaviyo for Shopify merchants. The brief was to build a dedicated product for that one problem rather than bolt a generic feature onto the side.</p>
+            <h2>// What we delivered</h2>
+            <ul>
+              <li>A focused integration connecting Lightspeed Retail X to Klaviyo, built specifically for Shopify merchants.</li>
+              <li>A dedicated product rather than a tacked-on feature, owned end to end.</li>
+              <li>The foundations for what grew into a SaaS business of its own.</li>
+            </ul>
+            <h2>// The outcome</h2>
+            <p>Gather grew into a focused Lightspeed and Klaviyo integration trusted by merchants around the world, and a SaaS business in its own right.</p>
+          </section>
+        {%- when '/work/aeroberm' -%}
+          <section class="cs-proof">
+            <h2>// The brief</h2>
+            <p>Aeroberm, an award-winning aviation and advanced air mobility venture led by Clem Newton-Brown (sister venture to Skyportz), needed a credible online presence fast, ahead of media coverage. The brief was for a custom build rather than an off-the-shelf platform, covering the technology, markets, investor and contact stories.</p>
+            <h2>// What we delivered</h2>
+            <ul>
+              <li>A fast, modern custom website built rather than assembled from a template.</li>
+              <li>Pages covering technology, markets, investor and contact stories.</li>
+              <li>A build designed to be iterated as the company moved.</li>
+              <li>A foundation light enough to launch quickly and strong enough to grow with.</li>
+            </ul>
+            <h2>// The outcome</h2>
+            <p>Within three weeks of launch, and off the back of media coverage with no paid promotion, qualified visitors were already finding their way to the contact and investor pages.</p>
+          </section>
+        {%- when '/work/applied-ev' -%}
+          <section class="cs-proof">
+            <h2>// The brief</h2>
+            <p>Applied EV asked Sonder to help them launch at CES very early in the company's life, with one high-stakes week in Las Vegas. The brief spanned web, brand and video, and called for everything to be engineered from scratch for a single launch moment.</p>
+            <h2>// What we delivered</h2>
+            <ul>
+              <li>A world-class website designed and built for the launch.</li>
+              <li>Editing of the launch video.</li>
+              <li>On-the-ground support in Las Vegas, from setting up the stand to talking with potential customers and partners.</li>
+              <li>A custom build engineered for one high-stakes week, the way every custom build is approached.</li>
+            </ul>
+            <h2>// The outcome</h2>
+            <p>The launch landed and played its part in the millions of dollars of funding and partnerships that followed, giving Applied EV a credible platform at the moment it mattered most.</p>
+          </section>
+      {%- endcase -%}
     </main>
 
     {% section 'footer' %}
