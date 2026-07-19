@@ -395,6 +395,24 @@
     },
     "contact-form": {
       "name": "Contact Form",
+      "settings": {
+        "fallback_header": "Direct contact fallback",
+        "show_fallback": {
+          "label": "Show direct email fallback"
+        },
+        "fallback_email": {
+          "label": "Fallback email address"
+        },
+        "fallback_text": {
+          "label": "Fallback intro text"
+        },
+        "booking_link": {
+          "label": "Booking link"
+        },
+        "booking_label": {
+          "label": "Booking link label"
+        }
+      },
       "presets": {
         "name": "Contact form"
       }

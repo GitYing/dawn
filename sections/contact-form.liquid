@@ -69,6 +69,23 @@
       </button>
     </div>
   {%- endform -%}
+  {%- if section.settings.show_fallback and section.settings.fallback_email != blank -%}
+    <div class="contact__fallback rte" data-snowball-test="contact-fallback">
+      <p>{{ section.settings.fallback_text | escape }}</p>
+      <p>
+        <a class="link" href="mailto:{{ section.settings.fallback_email | escape }}">
+          {{ section.settings.fallback_email | escape }}
+        </a>
+      </p>
+      {%- if section.settings.booking_link != blank -%}
+        <p>
+          <a class="button button--secondary" href="{{ section.settings.booking_link | escape }}">
+            {{ section.settings.booking_label | default: 'Book a call' | escape }}
+          </a>
+        </p>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
 </div>
 
 {% schema %}
@@ -79,6 +96,41 @@
   "presets": [
     {
       "name": "t:sections.contact-form.presets.name"
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.contact-form.settings.fallback_header"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_fallback",
+      "default": true,
+      "label": "t:sections.contact-form.settings.show_fallback.label"
+    },
+    {
+      "type": "text",
+      "id": "fallback_email",
+      "default": "hello@sondersites.com",
+      "label": "t:sections.contact-form.settings.fallback_email.label"
+    },
+    {
+      "type": "text",
+      "id": "fallback_text",
+      "default": "Prefer to email directly? Reach us at:",
+      "label": "t:sections.contact-form.settings.fallback_text.label"
+    },
+    {
+      "type": "url",
+      "id": "booking_link",
+      "label": "t:sections.contact-form.settings.booking_link.label"
+    },
+    {
+      "type": "text",
+      "id": "booking_label",
+      "default": "Book a call",
+      "label": "t:sections.contact-form.settings.booking_label.label"
     }
   ]
 }
