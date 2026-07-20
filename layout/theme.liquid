@@ -13,6 +13,8 @@
     {%- endunless -%}
 
     {%- case request.path -%}
+      {%- when '/pricing' -%}
+        {%- assign page_description = 'Snowball pricing: one simple fee of $500 AUD a week, everything included. Your first week is free and you can cancel anytime.' -%}
       {%- when '/snowball' -%}
         {%- assign page_description = 'Snowball helps Australian service businesses turn more visitors into leads with a sharper website, clearer offer and faster path to enquiry.' -%}
       {%- when '/services/vibe-code-rescue' -%}
@@ -206,6 +208,24 @@
             </ul>
             <h2>// The outcome</h2>
             <p>The launch landed and played its part in the millions of dollars of funding and partnerships that followed, giving Applied EV a credible platform at the moment it mattered most.</p>
+          </section>
+        {%- when '/pricing' -%}
+          <section class="pricing-page">
+            <h1>Pricing</h1>
+            <p>One simple fee: $500 AUD a week, everything included. Your first week is free and you can cancel anytime.</p>
+            <p><a href="https://buy.stripe.com/eVqaEZfM8aXPa4M4Fte3e0h">Start your free week &rarr;</a></p>
+            <h2>// Everything included</h2>
+            <ul>
+              <li>Watched every hour: errors, speed, search and every visitor.</li>
+              <li>Fixes what breaks, before it costs you.</li>
+              <li>Grows what works, week after week.</li>
+              <li>A human approves every change before it ships.</li>
+              <li>Live dashboard, every fix receipted and reversible.</li>
+            </ul>
+            <h2>// First week free</h2>
+            <p>Try Snowball on your own site for a week at no cost. If you stay, the fee stays flat: $500 AUD a week, no lock-in, cancel anytime.</p>
+            <h2>// Questions</h2>
+            <p>See <a href="/snowball">how Snowball works</a>, get a <a href="/dead-or-alive">free dead-or-alive scan</a>, or <a href="/contact">talk to the team</a>.</p>
           </section>
       {%- endcase -%}
     </main>
