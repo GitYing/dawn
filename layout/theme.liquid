@@ -135,6 +135,62 @@
     {% section 'header' %}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+      {%- if request.path == '/snowball' -%}
+        {%- assign snowball_product = all_products['snowball'] -%}
+        {%- if snowball_product != blank -%}
+          {{ 'component-price.css' | asset_url | stylesheet_tag }}
+          {{ 'component-badge.css' | asset_url | stylesheet_tag }}
+          <style>
+            .snowball-buy-box .product-form {
+              display: flex;
+              flex-direction: column;
+              row-gap: 1.5rem;
+              margin-top: 2rem;
+            }
+          </style>
+          <section class="page-width page-width--narrow spaced-section snowball-buy-box">
+            {%- render 'price', product: snowball_product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
+            {%- form 'product', snowball_product, id: 'SnowballProductForm', class: 'product-form', novalidate: 'novalidate' -%}
+              {%- unless snowball_product.has_only_default_variant -%}
+                <div class="product-form__input product-form__input--dropdown">
+                  <label class="form__label" for="SnowballVariant">{{ 'products.product.product_variants' | t }}</label>
+                  <div class="select">
+                    <select name="id" id="SnowballVariant" class="select__select">
+                      {%- for variant in snowball_product.variants -%}
+                        <option
+                          {% if variant == snowball_product.selected_or_first_available_variant %}selected="selected"{% endif %}
+                          {% if variant.available == false %}disabled{% endif %}
+                          value="{{ variant.id }}"
+                        >
+                          {{ variant.title }}
+                          {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
+                          - {{ variant.price | money | strip_html }}
+                        </option>
+                      {%- endfor -%}
+                    </select>
+                    {% render 'icon-caret' %}
+                  </div>
+                </div>
+              {%- else -%}
+                <input type="hidden" name="id" value="{{ snowball_product.selected_or_first_available_variant.id }}">
+              {%- endunless -%}
+              <input type="hidden" name="quantity" value="1">
+              <button
+                type="submit"
+                name="add"
+                class="product-form__submit button button--primary button--full-width"
+                {% if snowball_product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+              >
+                {%- if snowball_product.selected_or_first_available_variant.available -%}
+                  {{ 'products.product.add_to_cart' | t }}
+                {%- else -%}
+                  {{ 'products.product.sold_out' | t }}
+                {%- endif -%}
+              </button>
+            {%- endform -%}
+          </section>
+        {%- endif -%}
+      {%- endif -%}
       {{ content_for_layout }}
 
       {%- case request.path -%}
